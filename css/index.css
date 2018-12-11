@@ -20,11 +20,15 @@
 .ztimep {
   border: 4px var(--base-red) solid;
   display: none;
-  position: absolute;
   z-index: 1000;
   width: 340px;
   height: 540px;
   background: white;
+  position: fixed;
+  top: 25%;
+  left: 55%;
+  margin-top: -100px;
+  margin-left: -250px;
 }
 
 .ztimep .ztimep-controls {

@@ -241,7 +241,8 @@
         height: window.innerHeight - 8,
         position: "fixed",
         bottom: 0,
-        left: 0
+        left: 0,
+        margin: 0
       });
     }
     ctx.calendarContainer.show();
