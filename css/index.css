@@ -64,20 +64,21 @@
 .ztimep-header {
   background-color: #191919;
   clear: both;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   width: 100%;
   height: 10%;
 }
 
 .ztimep-header .fa-clock-o {
   color: white;
-  float: left;
   margin: 2%;
   font-size: 150%;
 }
 
 .ztimep-header-label {
   color: white;
-  float: left;
   margin: 1%;
   font-weight: bold;
   font-size: 190%;
@@ -90,7 +91,6 @@
 
 .ztimep-header-input {
   display: none;
-  float: left;
   margin: 1%;
   height: 65%;
   font-size: 90%;
@@ -98,13 +98,14 @@
 }
 
 .ztimep-close {
-  float: right;
   margin: 2%;
   height: 65%;
+  width: 10.5%;
   border-style: outset;
   border-width: 3px;
   background: var(--light-grey);
-  font-size: 100%;
+  font-size: 150%;
+  margin-left: auto;
 }
 
 /* Table */
