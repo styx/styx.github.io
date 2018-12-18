@@ -240,7 +240,7 @@
         width: window.innerWidth - 8,
         height: window.innerHeight - 8,
         position: "fixed",
-        bottom: 0,
+        top: 0,
         left: 0,
         margin: 0
       });
