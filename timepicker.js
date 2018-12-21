@@ -161,6 +161,7 @@
     this.calendarContainer = $('.ztimep', this.element);
 
     this.render();
+    this.resize()
     this.bindEvents();
   }
 
@@ -204,7 +205,36 @@
       .on('focusout.ztimep', '.' + targets.headerInput, data, this.outOfManualMode);
     
     $(document).on('keydown.ztimep', data, this.keyevent);
+    $(window).resize(_.debounce(this.resize, 150));
  };
+
+  ZTimeP.prototype.resize = function () {
+    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      var ctx = $('.ztimep');
+      var maxHeight = $(window).height() - 8;
+      var maxWidth = $(window).width() - 8;
+      var basePage= {
+        width: ctx.width(),
+        height: ctx.height(),
+        scale: 1,
+        scaleX: 1,
+        scaleY: 1
+      };
+      var scaleX = 1, scaleY = 1;                      
+      scaleX = maxWidth / basePage.width
+      scaleY = maxHeight / basePage.height;
+      basePage.scaleX = scaleX;
+      basePage.scaleY = scaleY;
+      basePage.scale = (scaleX > scaleY) ? scaleY : scaleX;
+      if (basePage.scale < 1) {
+        var newLeftPos = Math.abs(Math.floor(((basePage.width * basePage.scale) - maxWidth)/2));
+        var newTopPos = Math.abs(Math.floor(((basePage.height * basePage.scale) - maxHeight)/2));
+        ctx.css({'-webkit-transform' :'scale(' + basePage.scale + ')', 'left':newLeftPos + 'px', 'top':newTopPos + 'px', 'margin-top': '0px', 'margin-left': '0px'});
+      } else {
+        ctx.css({'top': '25%', left: '55%', 'margin-top': '-100px', 'margin-left': '-250px', '-webkit-transform' :'scale(1)'})
+      }
+    }
+  }
 
   ZTimeP.prototype.keyevent = function (event) {
     var ctx = event.data.context;

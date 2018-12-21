@@ -5,6 +5,10 @@
   --base-green: #007800;
 }
 
+body {
+  overflow: visible !important;
+}
+
 .main {
   align-items: center;
   display: flex;
@@ -23,12 +27,10 @@
   z-index: 1000;
   width: 340px;
   height: 540px;
+  min-height: 320px;
   background: white;
   position: fixed;
-  top: 25%;
-  left: 55%;
-  margin-top: -100px;
-  margin-left: -250px;
+  transform-origin: top left;
 }
 
 .ztimep .ztimep-controls {
